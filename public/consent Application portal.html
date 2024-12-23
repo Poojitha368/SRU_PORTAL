@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRU Portal</title>
+    <link rel="stylesheet" href="css/styles_Consent_Application_Portal.css">
+</head>
+
+<body>
+    <header>
+        <h1>SRU SR UNIVERSITY</h1>
+        <h2>Consent Application Portal</h2>
+        <button class="logout">Logout</button>
+    </header>
+    <div class="welcome">
+        Welcome to <span id="userName">userName</span> - Hallticket No.
+        <img src="profile-placeholder.png" alt="Profile Pic" class="profile-pic">
+    </div>
+    <div class="container">
+        <h2>Consent Form Submission</h2>
+        <form id="consentForm">
+            <div class="form-group">
+                <label for="branch">Branch/Specialization</label>
+                <select id="branch" name="branch" required>
+                    <option value="">Select your branch</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hallTicket">Hall Ticket Number</label>
+                <input type="text" id="hallTicket" name="hallTicket" required />
+            </div>
+            <div class="form-group">
+                <label for="email">College Email ID</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="leaveDuration">Leave Duration</label>
+                <div class="date-time-group">
+                    <div class="from-date-time">
+                        <!-- <label for="fromDate">From Date</label> -->
+                        <input type="date" id="fromDate" name="fromDate" required />
+                        <!-- <label for="fromTime">From Time</label> -->
+                        <input type="time" id="fromTime" name="fromTime" required />
+                    </div>
+                    <span>to</span>
+                    <div class="to-date-time">
+                        <!-- <label for="toDate">To Date</label> -->
+                        <input type="date" id="toDate" name="toDate" required />
+                        <!-- <label for="toTime">To Time</label> -->
+                        <input type="time" id="toTime" name="toTime" required />
+                    </div>
+                </div>
+                <small>Time should be in 24-hour format</small>
+            </div>
+            <div class="form-group">
+                <label for="consentLetter">Upload Consent Letter</label>
+                <input type="file" id="consentLetter" name="consentLetter" required />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="status" id="statusMessage" style="display: none;">
+            Your consent form has been submitted. Check the status on the status page.
+        </div>
+    </div>
+    <script src="script_Consent_Application_Portal.js" />
+</body>
+
+</html>

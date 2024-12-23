@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Portal</title>
+    <link rel="stylesheet" href="styles_Attendance_page.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>SRU SR UNIVERSITY</h1>
+        <h2>Attendance Portal for Training</h2>
+        <button class="logout">Logout</button>
+    </div>
+    <div class="container">
+        <label for="dateDropdown">Date:</label>
+        <select id="dateDropdown"></select>
+
+        <label for="sessionDropdown">Session:</label>
+        <select id="sessionDropdown" disabled>
+            <option value="">Select Session</option>
+            <option value="Session 1">Session 1 (9:00 AM - 1:00 PM)</option>
+            <option value="Session 2">Session 2 (1:20 PM - 5:00 PM)</option>
+        </select>
+
+        <button id="goButton" disabled>Go</button>
+
+        <table id="studentTable" class="hidden">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name of the Student</th>
+                    <th>Hall Ticket No</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
+
+        <div class="submit-container">
+            <button id="submitButton" class="submit-btn hidden" disabled>Submit</button>
+        </div>
+    </div>
+
+    <script src="script_Attendance_page.js"></script>
+    
+</body>
+
+</html>
+
+
+

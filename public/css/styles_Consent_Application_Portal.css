@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #004080;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.logout {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: white;
+    color: #007bff;
+    border: 1px solid #007bff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+}
+
+.logout:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.welcome {
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #004080;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+.status {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e6f7e6;
+    border: 1px solid #b3d9b3;
+    border-radius: 4px;
+}
+
+/* Date-Time Group Styling */
+.date-time-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.date-time-group label {
+    font-weight: bold;
+}
+
+.date-time-group small {
+    font-size: 12px;
+    color: #555;
+    margin-top: -5px;
+}
+
+.date-time-group input[type="date"],
+.date-time-group input[type="time"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0;
+}
+
+/* Flex Container for Leave Duration */
+.form-group div {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    margin-bottom: 10px;
+}
+
+.form-group div span {
+    align-self: center;
+    font-weight: bold;
+    color: #333;
+}

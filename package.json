@@ -1,0 +1,24 @@
+{
+  "name": "sru_portal",
+  "version": "1.0.0",
+  "description": "login-app/\r ├── public/\r │   ├── css/\r │   │   └── styles.css\r │   ├── js/\r │   │   └── script.js\r │   └── images/   (optional for assets)\r ├── views/\r │   ├── login.html\r │   ├── dashboard.html\r │   └── register.html\r ├── app.js\r └── package.json",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "devstart": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
