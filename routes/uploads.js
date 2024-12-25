@@ -5,14 +5,22 @@ const formidable = require('formidable');
 const path = require('path');
 const fs = require('fs');
 
-
-// Path to the uploads directory
+// Define the directory for uploaded files
 const uploadDir = path.join(__dirname, '../public/uploads');
 
-// Consent Submission Route
+
 router.post('/submit-consent', (req, res) => {
+    // Check if the user is logged in
+    if (!req.session || !req.session.user) {
+        console.error('Session or user data missing');
+        return res.status(403).send('You must be logged in to submit the form.');
+    }
+
+    const username = req.session.user.username;
+    console.log('Logged-in username:', username);
+
     const form = formidable({
-        uploadDir, // Directory to save uploaded files
+        uploadDir,
         multiples: false,
         keepExtensions: true,
     });
@@ -23,25 +31,13 @@ router.post('/submit-consent', (req, res) => {
             return res.status(500).send('Error processing form data.');
         }
 
-        console.log('Fields:', fields); // Log form fields
-        console.log('Files:', files);   // Log uploaded files
-
-        // Ensure an image was uploaded
-        if (!files.image || !files.image.path) {
-            return res.status(400).send("Image upload is required.");
-        }
-
-        // Use the uploaded file's path to create the URL
         const imageUrl = '/uploads/' + path.basename(files.image.path);
-        console.log('Image URL:', imageUrl);
-
         const { date_from, date_to } = fields;
         const submit_time = new Date();
-        const hallticket = req.session.user.username;
+        const htno = username;
 
-        // Insert data into the database
-        const query = 'INSERT INTO consent_form (date_from, date_to, image_url, submitted_time,htno) VALUES (?, ?, ?,?)';
-        db.query(query, [date_from, date_to, imageUrl,submit_time,hallticket], (err) => {
+        const query = 'INSERT INTO consent_form (date_from, date_to, image_url, submitted_time, htno) VALUES (?, ?, ?, ?, ?)';
+        db.query(query, [date_from, date_to, imageUrl, submit_time, htno], (err) => {
             if (err) {
                 console.error('Error inserting data:', err);
                 return res.status(500).send('Error saving consent data');
@@ -50,10 +46,12 @@ router.post('/submit-consent', (req, res) => {
                 <h1>Form Submitted Successfully!</h1>
                 <p>Thank you for submitting your consent form.</p>
                 <p>Submission Time: ${submit_time}</p>
-                <a href="/users/consent" style="text-decoration: none; color: blue;">Go back to the consent form</a>
+                <a href="/users/consent_form" style="text-decoration: none; color: blue;">Go back to the consent form</a>
             `);
         });
     });
 });
+
+
 
 module.exports = router;
